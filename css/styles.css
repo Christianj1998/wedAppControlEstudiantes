@@ -1,0 +1,448 @@
+/* Import Google font - Poppins */
+/*importamos la fuentes de google para las letras*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+/* para que no apliquen estilos globales  predeterminados  */
+* {
+  margin: 0; 
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+/* definimos variables de colores que estaremos utilizando a lo largo del codigo */
+:root {
+  --white-color: #fff;
+  --blue-color: #4070f4;
+  --grey-color: #707070;
+  --grey-color-light: #aaa; 
+}
+/* cuerpo  */ 
+body {
+  background-color: #e7f2fd;
+  transition: all 0.5s ease;  
+}
+
+/* modo oscuro varibles globales */
+body.dark {
+  background-color: #333;
+}
+body.dark {
+  --white-color: #333; 
+  --blue-color: #fff;
+  --grey-color: #f2f2f2;
+  --grey-color-light: #aaa;
+}
+/* //////////////////////////////////// */
+
+/* barra de navegacion */
+.navbar {
+  position: fixed; /*la barra de navegacion se posiciona fija en la parte superior de la pagina*/
+  top: 0;           
+  width: 100%; /* Tiene un ancho del 100% y se ubica en la parte izquierda */ 
+  left: 0;
+  background-color: var(--white-color); /* El color de fondo es blanco */ 
+  display: flex;  /* Se muestra como una fila con elementos alineados al centro y con espacio entre ellos */ 
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 30px; /* Tiene un padding de 15px en la parte superior e inferior y 30px en los lados */ 
+  z-index: 1000; /* Tiene un índice z de 1000 para que se muestre por encima de otros elementos */
+  box-shadow: 0 0 2px var(--grey-color-light); /* Tiene una elevación de sombra de 2px en color gris claro */ 
+}
+/* posicion del logo y las letras del mismo */
+.logo_item {
+  display: flex;    /* Utiliza un contenedor flexible para alinear los elementos internos */
+  align-items: center;  /* Centra verticalmente los elementos internos */ 
+  column-gap: 10px; /* Espacio entre las columnas */ 
+  font-size: 22px; /* Tamaño de fuente de 22px */
+  font-weight: 500;  /* Grosor de fuente de 500 */ 
+  color: var(--blue-color); /* color de texto con las variables creadas anteriormente */  
+}
+
+/* imagenes del menu  */
+.navbar img {
+  width: 35px; /* Las imágenes del menú se mostrarán con un ancho y alto de 35px */ 
+  height: 35px; 
+  object-fit: cover; /* La propiedad object-fit: cover asegura que la imagen se ajuste al contenedor */ 
+  border-radius: 50%; /* Se aplicará un borde redondeado con un radio del 50% es decir un circulo completo */
+} 
+
+/* barra de busqueda alto y ancho */
+.search_bar {
+  height: 47px; /* Se establece la altura de la barra de búsqueda en 47px */ 
+  max-width: 430px; /* Se establece el ancho máximo de la barra de búsqueda en 430px  mas que todo responsivo*/ 
+  width: 100%; /* Se establece el ancho de la barra de búsqueda al 100% */
+}
+
+/* estilo de la barra en la entrada de texto es decir interno (input) */
+.search_bar input {
+  height: 100%; /* alto */
+  width: 100%;  /* ancho */
+  border-radius: 25px; /* bordes redondeados */
+  font-size: 18px; 
+  outline: none;/* eliminar el contorno al hacer clic */ 
+  background-color: var(--white-color);
+  color: var(--grey-color);
+  border: 1px solid var(--grey-color-light);  /* estilo del border en este caso es de una sola linea */
+  padding: 0 20px;  /* relleno interno del input */ 
+}
+/* Posicion para el contenido de la barra de navegación (para el icono del sol y campana ) */
+.navbar_content {
+  display: flex; /* Hace que los elementos se muestren en una línea horizontal */ 
+  align-items: center; /* Alinea verticalmente los elementos en el centro */ 
+  column-gap: 25px; /* Establece un espacio de columna de 25 píxeles entre los elementos */
+}
+/* estilos de dichos iconos  */
+.navbar_content i {  /* i = texto cursivo es decir que el icono del sol  se trata como un texto  */
+  cursor: pointer; /* Cambia el cursor a un puntero es decir aparece la manito cuando nos poisicionamos  */ 
+  font-size: 20px; /* se trata como un elemento texto debido que no es una imagen */ 
+  color: var(--grey-color);
+}
+
+/* barra lateral */
+.sidebar {
+  background-color: var(--white-color);  /* Establece el color de fondo de la barra lateral */ 
+  width: 260px; /* Establece el ancho de la barra lateral */ 
+  position: fixed;  /* Fija la posición de la barra lateral */
+  top: 0;  /* Fija la posición de la barra lateral */
+  left: 0;  /* Establece la posición izquierda de la barra lateral */ 
+  height: 100%;  /* Establece la altura de la barra lateral */ 
+  padding: 80px 20px; /* Establece el relleno interno de la barra lateral */ 
+  z-index: 100; /* Establece el índice de apilamiento de superposicion */
+  overflow-y: scroll; /* Permite el desplazamiento vertical  */ 
+  box-shadow: 0 0 1px var(--grey-color-light);
+  transition: all 0.5s ease;  /* Establece una transición suave para los cambios de estilo */ 
+
+}
+/* cierre del menu de navegacion responsive */
+.sidebar.close {
+  padding: 60px 0;
+  width: 80px;
+}
+/* para eliminar  la barra de scroll */
+.sidebar::-webkit-scrollbar {
+  display: none;
+}
+
+.menu_content {
+  position: relative;
+}
+.menu_title {
+  margin: 15px 0;
+  padding: 0 20px;
+  font-size: 18px;
+}
+.sidebar.close .menu_title {
+  padding: 6px 30px;
+}
+.menu_title::before {
+  color: var(--grey-color);
+  white-space: nowrap;
+}
+.sidebar.close .menu_title::before {
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: 18px;
+  border-radius: 12px;
+  background: var(--grey-color-light);
+}
+.menu_items {
+  padding: 0;
+  list-style: none;
+}
+.navlink_icon {
+  position: relative;
+  font-size: 22px;
+  min-width: 50px;
+  line-height: 40px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 6px;
+}
+.navlink_icon::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: calc(100% + 100px);
+  left: -20px;
+}
+.navlink_icon:hover {
+  background: var(--blue-color);
+}
+.sidebar .nav_link {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 4px 15px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--grey-color);
+  white-space: nowrap;
+}
+.sidebar.close .navlink {
+  display: none;
+}
+.nav_link:hover {
+  color: var(--white-color);
+  background: var(--blue-color);
+}
+.sidebar.close .nav_link:hover {
+  background: var(--white-color);
+}
+.submenu_item {
+  cursor: pointer;
+}
+.submenu {
+  display: none;
+}
+.submenu_item .arrow-left {
+  position: absolute;
+  right: 10px;
+  display: inline-block;
+  margin-right: auto;
+}
+.sidebar.close .submenu {
+  display: none;
+}
+.show_submenu ~ .submenu {
+  display: block;
+}
+.show_submenu .arrow-left {
+  transform: rotate(90deg);
+}
+.submenu .sublink {
+  padding: 15px 15px 15px 52px;
+}
+.bottom_content {
+  position: fixed;
+  bottom: 60px;
+  left: 0;
+  width: 260px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+.bottom {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  left: 0;
+  justify-content: space-around;
+  padding: 18px 0;
+  text-align: center;
+  width: 100%;
+  color: var(--grey-color);
+  border-top: 1px solid var(--grey-color-light);
+  background-color: var(--white-color);
+}
+.bottom i {
+  font-size: 20px;
+}
+.bottom span {
+  font-size: 18px;
+}
+.sidebar.close .bottom_content {
+  width: 50px;
+  left: 15px;
+}
+.sidebar.close .bottom span {
+  display: none;
+}
+.sidebar.hoverable .collapse_sidebar {
+  display: none;
+}
+#sidebarOpen {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  #sidebarOpen {
+    font-size: 25px;
+    display: block;
+    margin-right: 10px;
+    cursor: pointer;
+    color: var(--grey-color);
+  }
+  .sidebar.close {
+    left: -100%; 
+  }
+  .search_bar {
+    display: none;
+  }
+  .sidebar.close .bottom_content {
+    left: -100%;
+  }
+}
+.body{
+  width: 80%;
+  margin-left: 20%;
+  margin-top: 3%;
+  padding: 40px;
+  min-height: 500px;
+  
+}
+.panel{
+  border: 1px solid #e7f2fd;
+  border-radius: 4px;
+  padding: 10px;
+  width: 90%;
+  margin: 0 auto;
+}
+.form input[type="text"],.form input[type="password"], select{
+  width: 90%;
+  padding: 8px;
+  border-radius:4px;
+  border:1px solid #d3d3d3;
+  margin-bottom: 2px;
+  margin-top: 2px;
+}
+.number{
+  padding: 6px;
+  border-radius:4px;
+  border:1px solid #d3d3d3;
+  margin-bottom: 4px;
+  margin-top: 4px;
+}
+
+.b_b, .btn-link{
+  padding: 8px;
+  border-radius:4px;
+  border:1px solid #d3d3d3;
+  background: #007bff;
+  color:#080808;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 3px;
+  margin-top: 2px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.16);
+  text-decoration: none;
+  
+}
+
+.b_b[type=reset]{ 
+  background: #d6d8db;
+  color:#1b1e21; 
+}
+span.error{
+  color: red;
+  font-weight: bold;
+}
+span.success{
+  color: green;
+  font-weight: bold;
+}
+.btn-link{
+  float: right;
+  text-decoration: none;
+  background: #ddd;
+}
+.table{
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.16);
+  border-radius: 6px;
+  overflow: hidden;
+  border-top:1px solid #ddd;
+  border-left:1px solid #ddd;
+}
+.table th, .table td{
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+}
+.table tr:nth-child(2n) { 
+  background-color: #f9f9f9; 
+
+} 
+.text-center{
+  text-align: center;
+}
+
+/* estilos para el graficos y secciones */
+
+.card {
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.16);
+  border-radius: 6px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.card:hover {
+  transform: translateY(-5px);  
+}
+
+.card-child {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+ 
+.card-child li {
+  padding: 10px 16px;
+  border-bottom: 1px solid #eee;
+}
+
+.card-child li:last-child {
+  border-bottom: none;
+}
+
+
+/* Estilos opcionales para los elementos de la lista */
+.card-child li:first-child { 
+  text-align: center;
+  font-weight: bold; 
+  background-color: #e6f7ff;   
+}
+
+.card-child li:nth-child(2n) {
+  background-color: #f9f9f9;
+
+} 
+
+/* estilos para el submenu de inicio que me da las secciones */
+.card-child li.dropdown { 
+  position: relative;
+} 
+.card-child li.dropdown .submenu {
+  list-style: none;
+  text-align: center;
+  font-weight: bold;
+  display: none;
+  position: absolute; 
+  width: 90%;
+  top: 100%;
+  left: 45px;
+  z-index: 100;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.16);
+  border-radius: 6px;
+  padding: 10px 0;
+  transition: opacity 0.3s ease;  
+}
+.card-child a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: #080808;
+}
+.card-child a:hover {
+  color:#333333ee;
+  transition: transform 0.1s ease;
+  border:2px solid #e6f7ff;
+  border-radius: 6px;
+}
+.card-child li.dropdown:hover .submenu { 
+  cursor: pointer; 
+  display: block; 
+}
+
+.card-child li.dropdown .submenu li {
+  padding: 10px 16px;
+  border-bottom: 1px solid #eee;
+}
+
+.card-child li.dropdown .submenu li:last-child {
+  border-bottom: none;
+} 
+ 

@@ -19,41 +19,49 @@ $años = $años->fetchAll();
 <!-- Registro de alumno -->
 <div class="body">
     <div class="panel">
-            <h4>Registro de Alumnos</h4>
-            <form method="post" class="form" action="procesaralumno.php">
-            <label>Cedula</label><br>
-                <input type="text" required name="cedula" maxlength="11">
-                <br>
-                <label>Nombres</label><br>
-                <input type="text" required name="nombres" maxlength="45">
-                <br>
-                <label>Apellidos</label><br>
-                <input type="text" required name="apellidos" maxlength="45">
-                <br><br>
-                <label>No de Lista</label><br>
-                <input type="number" min="1" class="number" name="numlista">
-                <br><br>
-                <label>Sexo</label><br><input required type="radio" name="genero" value="M"> Masculino
-                <input type="radio" name="genero" required value="F"> Femenino
-                <br><br>
-                <label>Años</label><br>
-                <select name="años" required>
+        <form method="post" class="form" action="procesaralumno.php">
+                <h4>Registro de Alumnos</h4>
+                <div class="form-group">
+                    <label>Cedula</label>
+                    <input type="text" required name="cedula" maxlength="11">
+                </div>
+                <div class="form-group">
+                    
+                    <label>Nombres</label>
+                    <input type="text" required name="nombres" maxlength="45">
+                </div>
+                <div class="form-group">
+                    <label>Apellidos</label>
+                    <input type="text" required name="apellidos" maxlength="45">
+                </div>
+                <div class="form-group">  
+                    <label>No de Lista</label>
+                    <input type="number" min="1" class="number" name="numlista">
+                </div>
+                <div class="genero">    
+                    <input required type="radio" name="genero" value="M"> 
+                    <label>Masculino</label>
+                     <br>
+                    <input type="radio" name="genero" required value="F"> 
+                    <label>Femenino</label>
+                </div>
+                <div class="form-group">
 
-                    <?php foreach ($años as $años):?>
-                        <option value="<?php echo $años['id'] ?>"><?php echo $años['nombre'] ?></option>
-                    <?php endforeach;?>
-                </select>
-                <br><br>
-                <label>Sección</label><br>
-
-                    <?php foreach ($secciones as $seccion):?>
-                        <input type="radio" name="seccion" required value="<?php echo $seccion['id'] ?>">Sección <?php echo $seccion['nombre'] ?>
-                    <?php endforeach;?>
-
-                <br><br>
-                <button class="b_b" type="submit" name="insertar">Guardar</button> 
-                <button class="b_b" type="reset">Limpiar</button> 
-                <a class="btn-link" href="listadoalumnos.view.php">Ver Listado</a>
+                    <label>Años</label><br>
+                    <select name="años" required>
+                        
+                        <?php foreach ($años as $años):?>
+                            <option  value="<?php echo $años['id'] ?>"><?php echo $años['nombre'] ?></option>
+                            <?php endforeach;?>
+                        </select>
+                    </div>
+                    <div class="seccion">
+                        <?php foreach ($secciones as $seccion):?>
+                            <input type="radio" name="seccion" required value="<?php echo $seccion['id'] ?>">Sección <?php echo $seccion['nombre'] ?>
+                            <?php endforeach;?>
+                        </div>
+                            <button class="b_b" type="submit" name="insertar">Guardar</button> 
+                            <button class="b_b" type="reset">Limpiar</button> 
                 <br><br>
                 <!--mostrando los mensajes que recibe a traves de los parametros en la url-->
                 <?php

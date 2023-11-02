@@ -26,7 +26,7 @@ $countAlumnos =    (json_encode(getCountAlumnos($conn)));
 
         <div class="card">
             <ul class="card-child">
-                <li>Listado de estudiantes año 2024</li>
+                <li class="text-center">Listado de estudiantes año 2024</li>
                 <li class="dropdown"> 
                     <span>Primer año</span>
                     <ul class="submenu">

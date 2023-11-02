@@ -23,42 +23,42 @@ $secciones = $secciones->fetchAll();
 
 <div class="body">
     <div class="panel">
-        <h3>Consulta de Notas</h3>
         <?php
         if(!isset($_GET['consultar'])){
             ?>
-            <p>Seleccione el grado, la materia y la sección</p>
+            
             <form method="get" class="form" action="listadonotas.view.php">
-                <label>Seleccione el Grado</label><br>
-                <select name="grado" required>
-                    <?php foreach ($grados as $grado):?>
-                        <option value="<?php echo $grado['id'] ?>"><?php echo $grado['nombre'] ?></option>
-                    <?php endforeach;?>
-                </select>
-                <br><br>
-                <label>Seleccione la Materia</label><br>
-                <select name="materia" required>
-                    <?php foreach ($materias as $materia):?>
-                        <option value="<?php echo $materia['id'] ?>"><?php echo $materia['nombre'] ?></option>
-                    <?php endforeach;?>
-                </select>
+                <h4>Consulta de Notas</h4>
+                <div class="form-group">
+                    <label>Seleccione el Grado</label><br>
+                    <select name="grado" required>
+                        <?php foreach ($grados as $grado):?>
+                            <option value="<?php echo $grado['id'] ?>"><?php echo $grado['nombre'] ?></option>
+                            <?php endforeach;?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Seleccione la Materia</label><br>
+                        <select name="materia" required>
+                            <?php foreach ($materias as $materia):?>
+                                <option value="<?php echo $materia['id'] ?>"><?php echo $materia['nombre'] ?></option>
+                                <?php endforeach;?>
+                            </select>
+                        </div>
+                            
+                <div class="seccion">
 
-                <br><br>
-                <label>Seleccione la Sección</label><br><br>
-
-                <?php foreach ($secciones as $seccion):?>
-                    <input type="radio" name="seccion" required value="<?php echo $seccion['id'] ?>">Sección <?php echo $seccion['nombre'] ?>
-                <?php endforeach;?>
-
-                <br><br>
-                <button type="submit" name="consultar" value="1">Consultar Notas</button></a>
-                <br><br>
-            </form>
-            <?php
+                    
+                    <?php foreach ($secciones as $seccion):?>
+                        <input type="radio" name="seccion" required value="<?php echo $seccion['id'] ?>">Sección <?php echo $seccion['nombre'] ?>
+                        <?php endforeach;?>
+                        
+                    </div>
+                        <button type="submit" name="consultar" value="1">Consultar Notas</button></a>
+                    </form>
+                    <?php
         }
         ?>
-        <hr>
-
         <?php
         if(isset($_GET['consultar'])){
             $id_materia = $_GET['materia'];

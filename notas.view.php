@@ -24,42 +24,46 @@ $secciones = $secciones->fetchAll();
 <?php include 'menu.view.php';?>
 <div class="body">
     <div class="panel">
-            <h3>Registro y Modificación Notas</h3>
-           <?php
+        <?php
            if(!isset($_GET['revisar'])){
                ?>
 
-            <form method="get" class="form" action="notas.view.php">
-                <label>Seleccione el Grado</label><br>
-                <select name="grado" required>
-                    <?php foreach ($grados as $grado):?>
-                        <option value="<?php echo $grado['id'] ?>"><?php echo $grado['nombre'] ?></option>
-                    <?php endforeach;?>
-                </select>
-                <br><br>
-                <label>Seleccione la Materia</label><br>
-                <select name="materia" required>
-                    <?php foreach ($materias as $materia):?>
-                        <option value="<?php echo $materia['id'] ?>"><?php echo $materia['nombre'] ?></option>
-                    <?php endforeach;?>
-                </select>
+<form method="get" class="form" action="notas.view.php">
+    <h4>Registro y Modificación Notas</h4>
+    <div class="form-group">
 
-                <br><br>
-                <label>Seleccione la Sección</label><br>
-
-                <?php foreach ($secciones as $seccion):?>
-                    <input type="radio" name="seccion" required value="<?php echo $seccion['id'] ?>">Sección <?php echo $seccion['nombre'] ?>
+        <label>Seleccione el años</label><br>
+        <select name="grado" required>
+            <?php foreach ($grados as $grado):?>
+                <option value="<?php echo $grado['id'] ?>"><?php echo $grado['nombre'] ?></option>
                 <?php endforeach;?>
+            </select>
+        </div>
+                <div class="form-group">
 
-                <br><br>
+                    <label>Seleccione la Materia</label><br>
+                    <select name="materia" required>
+                        <?php foreach ($materias as $materia):?>
+                            <option value="<?php echo $materia['id'] ?>"><?php echo $materia['nombre'] ?></option>
+                            <?php endforeach;?>
+                        </select>
+                    </div>
+                    <div class="seccion">
+
+                        
+                        
+                        <?php foreach ($secciones as $seccion):?>
+                            <input type="radio" name="seccion" required value="<?php echo $seccion['id'] ?>">Sección <?php echo $seccion['nombre'] ?>
+                            <?php endforeach;?>
+                        </div>
+                            
+                            
                 <button type="submit" name="revisar" value="1">Ingresar Notas</button> <a class="btn-link" href="listadonotas.view.php">Consultar Notas</a>
                 <br><br>
             </form>
         <?php
            }
         ?>
-        <hr>
-
         <?php
         if(isset($_GET['revisar'])){
             $id_materia = $_GET['materia'];

@@ -14,7 +14,7 @@ else {
     $idgrado = htmlentities($_POST['años']);
     $idseccion = htmlentities($_POST['seccion']);
 
-    //insertar es el nombre del boton guardar que esta en el archivo alumnos.view.php
+    //insertar es el nombre del boton guardar que esta en el archivo trabajadores.view.php
     if (isset($_POST['insertar'])){
 
         $result = $conn->query("insert into alumnos (num_lista ,cedula ,nombres, apellidos, genero, id_grado, id_seccion) values ('$numlista' ,'$cedula' , '$nombres', '$apellidos', '$genero', '$idgrado','$idseccion' )");
@@ -24,9 +24,9 @@ else {
             header('location:alumnos.view.php?err=1');
         }// validación de registro
 
-    //sino boton modificar que esta en el archivo alumnoedit.view.php
+    //sino boton modificar que esta en el archivo trabajadores.view.php
     }else if (isset($_POST['modificar'])) {
-        //capturamos el id alumnos a modificar
+        //capturamos el id trabajadores a modificar
             $id_alumno = htmlentities($_POST['id']);
             $result = $conn->query("update alumnos set num_lista = '$numlista', cedula = '$cedula', nombres = '$nombres', apellidos = '$apellidos', genero = '$genero',id_grado = '$idgrado', id_seccion = '$idseccion' where id = " . $id_alumno);
             if (isset($result)) {

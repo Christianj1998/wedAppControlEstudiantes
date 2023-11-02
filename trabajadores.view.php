@@ -18,12 +18,12 @@ permisos($permisos);
                 </div>
                 <div class="form-group">
                     <label>Nombres</label><br>
-                    <input type="text" required name="nombres" maxlength="45">
+                    <input type="text" required name="nombre" maxlength="45">
                 </div>
                 <div class="form-group">
 
                     <label>Apellidos</label><br>
-                    <input type="text" required name="apellidos" maxlength="45">
+                    <input type="text" required name="apellido" maxlength="45">
                 </div>
                 <div class="form-group">
                     <label>Ocupacion</label><br>

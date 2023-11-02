@@ -32,7 +32,7 @@ $secciones = $secciones->fetchAll();
     <h4>Registro y Modificación Notas</h4>
     <div class="form-group">
 
-        <label>Seleccione el años</label><br>
+        <label>Seleccione el año</label><br>
         <select name="grado" required>
             <?php foreach ($grados as $grado):?>
                 <option value="<?php echo $grado['id'] ?>"><?php echo $grado['nombre'] ?></option>
@@ -162,7 +162,7 @@ $secciones = $secciones->fetchAll();
                 <tr></tr>
             </table>
                 <br>
-                <button type="submit" name="insertar">Guardar</button> <button type="reset">Limpiar</button> <a class="btn-link" href="listadonotas.view.php">Consultar Notas</a>
+                <button type="submit" name="insertar">Guardar</button> <button type="reset">Limpiar</button>
                 <br>
             </form>
 

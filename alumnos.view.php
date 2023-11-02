@@ -20,7 +20,7 @@ $años = $años->fetchAll();
 <div class="body">
     <div class="panel">
         <form method="post" class="form" action="procesaralumno.php">
-                <h4>Registro de Alumnos</h4>
+            <h4>Registro de Alumnos</h4>
                 <div class="form-group">
                     <label>Cedula</label>
                     <input type="text" required name="cedula" maxlength="11">

@@ -36,5 +36,5 @@ else {
             }// validación de registro
     }
 
-}
+} 
 

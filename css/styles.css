@@ -291,7 +291,7 @@ body.dark {
   background-color: var(--white-color);
   max-width: 1000px;
   margin: 0 auto;
-  padding: 30px;   
+  padding: 18px;   
   border-radius: 10px;
   box-shadow: 0 5px 10px rgba(0,0,0,0.1);  
   font-size: 20px;
@@ -303,7 +303,6 @@ body.dark {
   color: var(--blue-color);  
   text-align: center;
   margin-bottom: 10px;
-    
 }
 
 .form-group {
@@ -321,7 +320,7 @@ body.dark {
 .form-group input,
 .form-group select {
   flex: 2;  
-  padding: 10px;
+  padding: 9px;
   border: 2px solid var(--grey-color-light);  
   border-radius: 5px;
   color: var(--grey-color);
@@ -334,7 +333,7 @@ body.dark {
   display:flex; 
   align-items: center;
   column-gap: 15px;
-  margin: 20px;
+  margin: 14px;
   margin-left: 34%;
 }
 
@@ -343,7 +342,6 @@ body.dark {
   margin-left: 10px; 
 }
 .form button[type="submit"] {
- 
   width: 100%;
   padding: 10px;
   border-radius: 5px;
